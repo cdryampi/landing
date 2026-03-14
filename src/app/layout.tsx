@@ -38,7 +38,7 @@ export default async function RootLayout({
   const htmlLang = isAppLocale(localeCookie) ? localeCookie : defaultLocale;
 
   return (
-    <html lang={htmlLang} data-scroll-behavior="smooth">
+    <html lang={htmlLang} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className={`${spaceGrotesk.variable} ${plexMono.variable} bg-background text-foreground antialiased`}>
         {children}
       </body>

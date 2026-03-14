@@ -4,7 +4,6 @@ import { Loader2 } from "lucide-react";
 import { useState, useTransition } from "react";
 
 import { resendLeadEmails } from "@/app/dashboard/actions";
-import LeadStatusMenu from "@/components/forms/LeadStatusMenu";
 import { Button } from "@/components/ui/button";
 import { shouldAllowLeadEmailRetry } from "@/lib/email-automation";
 import type { Lead } from "@/lib/supabase/database.types";
@@ -48,11 +47,6 @@ export default function LeadRowActions({ lead, disabledReason }: LeadRowActionsP
             Reenviar email
           </Button>
         ) : null}
-        <LeadStatusMenu
-          leadId={lead.id}
-          currentStatus={lead.status}
-          disabledReason={disabledReason}
-        />
       </div>
       {feedback ? <p className="max-w-xs text-right text-xs text-zinc-400">{feedback}</p> : null}
     </div>

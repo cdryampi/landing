@@ -12,21 +12,13 @@ import type { Lead } from "@/lib/supabase/database.types";
 
 import DashboardEmptyState from "./DashboardEmptyState";
 import LeadRowActions from "./LeadRowActions";
+import LeadStatusMenu from "@/components/forms/LeadStatusMenu";
 
 interface LeadsTableProps {
   leads: Lead[];
   disabledReason?: string;
 }
 
-const statusVariantMap = {
-  new: "warning",
-  contacted: "default",
-  closed: "muted",
-} as const;
-
-function getStatusLabel(status: Lead["status"]) {
-  return statusVariantMap[status] ? status : "new";
-}
 
 export default function LeadsTable({ leads, disabledReason }: LeadsTableProps) {
   if (!leads.length) {
@@ -53,7 +45,6 @@ export default function LeadsTable({ leads, disabledReason }: LeadsTableProps) {
       </TableHeader>
       <TableBody>
         {leads.map((lead) => {
-          const status = getStatusLabel(lead.status);
 
           return (
             <TableRow key={lead.id}>
@@ -68,7 +59,11 @@ export default function LeadsTable({ leads, disabledReason }: LeadsTableProps) {
               <TableCell>{lead.email}</TableCell>
               <TableCell>{lead.company || "Sin empresa"}</TableCell>
               <TableCell>
-                <Badge variant={statusVariantMap[status]}>{status}</Badge>
+                <LeadStatusMenu
+                  leadId={lead.id}
+                  currentStatus={lead.status}
+                  disabledReason={disabledReason}
+                />
               </TableCell>
               <TableCell>
                 <div className="flex flex-col gap-2">
