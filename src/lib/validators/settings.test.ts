@@ -43,6 +43,15 @@ const validSettings = {
   autoresponder_body: "Gracias por escribir. Te responderemos en un maximo de 24 horas.",
   resend_from_name: "Digital Bit Solutions",
   resend_from_email: "noreply@digitalbitsolutions.com",
+  header_nav_services: "Servicios",
+  header_nav_cases: "Casos de exito",
+  header_nav_process: "Proceso",
+  header_nav_contact: "Contacto",
+  header_access: "Acceso",
+  footer_directory_label: "Directorio",
+  footer_contact_label: "Contacto",
+  footer_tagline: "Estudio tecnico senior para software a medida y automatizacion con criterio.",
+  ticker_label: "Tecnologias y partners con los que trabajamos",
 } as const;
 
 describe("siteSettingsSchema", () => {
