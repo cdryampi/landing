@@ -128,6 +128,8 @@ src/
    ```
 4. Configura el webhook SQL incluido en `supabase/sql/lead_email_automation.sql`.
 
+Para el paso a produccion completo, revisa [docs/production-deploy.md](docs/production-deploy.md).
+
 ---
 
 ## 🛡️ Seguridad y Calidad
